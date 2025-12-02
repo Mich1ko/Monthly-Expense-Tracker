@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000000;
+    min-height: 100vh;
+    padding: 30px;
+    color: #333;
+
+}
+
+/* Main Container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Section */
+.budget-section {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #ffffff;
+    transition: border 0.2s ease;
+}
+
+input:focus {
+    border-color: #333;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: #000;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Budget Display Box */
+#budgetDisplay {
+    margin-top: 20px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+}
+
+#budgetDisplay p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+/* Remaining Highlight */
+#remaining {
+    font-weight: 600;
+    color: #111;
+}

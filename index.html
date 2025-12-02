@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Monthly Expenses Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 My Monthly Expense Tracker</h1>
+
+        <div class="budget-section">
+             <h2>Set Your Budget</h2>
+            <input type="number" id="budgetInput" placeholder="Enter budget amount">
+            <button id="setBudgetBtn">Set Budget</button>
+
+
+            <div class="budget-display">
+                <p>Budget: <span id="totalBudget">₱0</span></p>
+                <p>Spent: <span id="totalSpent">₱0</span></p>
+                <p><span id="remainingLabel">Remaining</span>: <span id="remaining">₱0</span></p>
+
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
