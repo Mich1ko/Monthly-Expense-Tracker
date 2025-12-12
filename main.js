@@ -60,7 +60,7 @@ function updateBudgetDisplay() {
 
     // Update budget amounts
     totalBudgetEl.textContent = '₱' + budget.toFixed(2);
-     totalSpentEl.textContent = '₱' + totalSpent.toFixed(2);
+    totalSpent.textContent = '₱' + totalSpent.toFixed(2);
 
 }
 
