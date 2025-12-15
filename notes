@@ -1,0 +1,617 @@
+// ========================================
+// TO-DO LIST - HANDS-ON LEARNING GUIDE
+// Write the code yourself, step by step!
+// ========================================
+
+
+// ========================================
+// 📚 STEP 1: SELECTING ELEMENTS
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to "grab" HTML elements so JavaScript can work with them.
+
+📖 EXPLANATION:
+Your HTML has elements like <input id="taskInput">, but JavaScript
+can't use them until you SELECT them first.
+
+Think of it like this:
+- Your HTML is a house with many rooms
+- querySelector is like giving directions: "Go to the room with ID 'taskInput'"
+- Once you find the room, you can interact with it!
+
+🔧 THE TOOL: document.querySelector()
+
+SYNTAX:
+document.querySelector('#idName')
+                        ↑
+                The # means "search by ID"
+
+EXAMPLE:
+If your HTML has: <button id="myButton">Click me</button>
+You select it with: const btn = document.querySelector('#myButton');
+Now 'btn' represents that button in JavaScript!
+*/
+
+// ✏️ TODO 1: Select the input field with id="taskInput"
+// WHAT TO WRITE: const taskInput = document.querySelector('#taskInput');
+// WHY: So we can read what the user types
+
+const taskInput = 
+
+// ✏️ TODO 2: Select the button with id="addBtn"
+// WHAT TO WRITE: const addBtn = document.querySelector('#addBtn');
+// WHY: So we can detect when the user clicks it
+
+const addBtn = 
+
+// ✏️ TODO 3: Select the <ul> with id="taskList"
+// WHAT TO WRITE: const taskList = document.querySelector('#taskList');
+// WHY: So we can add new tasks to it
+
+const taskList = 
+
+// ✏️ TODO 4: Select the stats elements (copy these exactly)
+const totalTasksEl = document.querySelector('#totalTasks');
+const completedTasksEl = document.querySelector('#completedTasks');
+const remainingTasksEl = document.querySelector('#remainingTasks');
+
+// 🧪 TEST: Open browser console (F12) and type: console.log(taskInput);
+// You should see the input element!
+
+
+// ========================================
+// 📚 STEP 2: CREATE DATA STORAGE
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to store multiple pieces of data using an array.
+
+📖 EXPLANATION:
+An ARRAY is like a list or container that holds multiple items.
+
+Real-world example:
+Shopping list = ['milk', 'bread', 'eggs']
+                  ↑        ↑       ↑
+                item 0   item 1  item 2
+
+For our app:
+We need to store multiple tasks like:
+tasks = [
+  {id: 1, text: 'Buy milk', completed: false},
+  {id: 2, text: 'Do homework', completed: true}
+]
+
+WHY AN ARRAY?
+- It can hold many tasks (not just one)
+- We can add tasks, remove tasks, count tasks
+- It keeps everything organized
+
+🔧 THE TOOL: let arrayName = [];
+
+SYNTAX:
+let myList = [];  ← Creates an empty array
+myList.push('item');  ← Adds an item to the array
+myList.length  ← Tells you how many items
+*/
+
+// ✏️ TODO 5: Create an empty array called 'tasks'
+// WHAT TO WRITE: let tasks = [];
+// WHY: This will store ALL our tasks
+
+let tasks = 
+
+// 🧪 TEST: Type in console: console.log(tasks);
+// You should see an empty array: []
+
+
+// ========================================
+// 📚 STEP 3: EVENT LISTENERS
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to make buttons respond to clicks.
+
+📖 EXPLANATION:
+An EVENT LISTENER is like a guard watching for something specific.
+
+Real-world analogy:
+- You tell a guard: "When someone knocks on the door, open it"
+- The guard LISTENS for the knock (event)
+- When they hear it, they OPEN the door (run the function)
+
+In JavaScript:
+- You tell the button: "When someone clicks you, run this function"
+- The button LISTENS for clicks
+- When clicked, it RUNS the function
+
+🔧 THE TOOL: addEventListener()
+
+SYNTAX:
+element.addEventListener('eventType', functionName);
+         ↑                    ↑              ↑
+    What to watch         What event    What function
+                          to watch for   to run
+
+COMMON EVENTS:
+- 'click' = when user clicks
+- 'keypress' = when user presses a key
+- 'change' = when a value changes
+- 'submit' = when a form is submitted
+
+EXAMPLE:
+button.addEventListener('click', sayHello);
+
+function sayHello() {
+    alert('Hello!');
+}
+
+Now when you click the button, it shows "Hello!"
+*/
+
+// ✏️ TODO 6: Add a click event listener to the addBtn
+// WHAT TO WRITE: addBtn.addEventListener('click', addTask);
+// WHY: So when the button is clicked, it calls the addTask function
+// NOTE: We haven't created addTask yet, but we will in the next step!
+
+
+// BONUS ✏️ TODO 7: Add Enter key support
+// WHAT TO WRITE: 
+// taskInput.addEventListener('keypress', function(e) {
+//     if (e.key === 'Enter') {
+//         addTask();
+//     }
+// });
+// WHY: So users can press Enter instead of clicking the button
+// NOTE: This is optional but improves user experience!
+
+
+// 🧪 TEST: Click the button. Check console for errors.
+// You'll see an error "addTask is not defined" - that's normal!
+// We'll create it next.
+
+
+// ========================================
+// 📚 STEP 4: THE addTask FUNCTION
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to create a function that adds tasks.
+
+📖 EXPLANATION:
+A FUNCTION is a reusable block of code - like a recipe!
+
+Recipe analogy:
+Recipe for "Make Coffee":
+1. Boil water
+2. Add coffee grounds
+3. Pour water over grounds
+4. Wait 4 minutes
+
+You write this recipe ONCE, but can use it many times.
+
+JavaScript function:
+function makeCoffee() {
+    boilWater();
+    addGrounds();
+    pourWater();
+    wait(4);
+}
+
+Now whenever you need coffee, just call: makeCoffee();
+
+🔧 FUNCTION SYNTAX:
+
+function functionName() {
+    // Code goes here
+}
+
+To use it: functionName();
+*/
+
+// ✏️ TODO 8: Create the addTask function
+// WHAT TO WRITE: Start with: function addTask() {
+// Then add a closing brace } at the end
+
+function addTask() {
+    
+    // --- PART A: GET THE INPUT VALUE ---
+    /*
+    📖 EXPLANATION:
+    .value gets what's inside an input field
+    .trim() removes extra spaces from the beginning and end
+    
+    Example:
+    If user types: "  buy milk  "
+    After trim: "buy milk"
+    
+    WHY? Users might accidentally add spaces. We don't want
+    a task that's just "    " (empty spaces).
+    */
+    
+    // ✏️ TODO 9: Get the input value and trim it
+    // WHAT TO WRITE: const taskText = taskInput.value.trim();
+    // WHY: To get what the user typed (without extra spaces)
+    
+    const taskText = 
+    
+    
+    // --- PART B: VALIDATE (CHECK IF IT'S EMPTY) ---
+    /*
+    📖 EXPLANATION:
+    We need to CHECK if the user actually typed something.
+    
+    if (condition) {
+        // This runs if condition is true
+    }
+    
+    === means "is exactly equal to"
+    '' means empty string (nothing)
+    
+    alert() shows a popup message
+    return exits the function immediately (stops here)
+    */
+    
+    // ✏️ TODO 10: Check if taskText is empty
+    // WHAT TO WRITE:
+    // if (taskText === '') {
+    //     alert('Please enter a task!');
+    //     return;
+    // }
+    // WHY: We don't want to create empty tasks!
+    
+    
+    
+    // --- PART C: CREATE A TASK OBJECT ---
+    /*
+    📖 EXPLANATION:
+    An OBJECT groups related information together.
+    
+    Example - A person object:
+    const person = {
+        name: 'John',
+        age: 25,
+        city: 'Manila'
+    };
+    
+    Access it: person.name gives you 'John'
+    
+    For our task:
+    {
+        id: 12345,           ← A unique number to identify it
+        text: 'Buy milk',    ← What the task says
+        completed: false     ← Is it done? (no = false)
+    }
+    
+    Date.now() gives the current time in milliseconds.
+    It's always unique, perfect for IDs!
+    Example: 1698765432123
+    */
+    
+    // ✏️ TODO 11: Create a task object
+    // WHAT TO WRITE:
+    // const task = {
+    //     id: Date.now(),
+    //     text: taskText,
+    //     completed: false
+    // };
+    // WHY: To store all info about this task together
+    
+    
+    
+    // --- PART D: ADD TO THE ARRAY ---
+    /*
+    📖 EXPLANATION:
+    .push() adds an item to the END of an array.
+    
+    Example:
+    let fruits = ['apple'];
+    fruits.push('banana');
+    Now fruits = ['apple', 'banana']
+    */
+    
+    // ✏️ TODO 12: Add the task to the tasks array
+    // WHAT TO WRITE: tasks.push(task);
+    // WHY: To save it in our list of all tasks
+    
+    
+    
+    // --- PART E: CLEAR THE INPUT ---
+    /*
+    📖 EXPLANATION:
+    After adding a task, clear the input box so the user
+    can easily type the next task.
+    */
+    
+    // ✏️ TODO 13: Clear the input field
+    // WHAT TO WRITE: taskInput.value = '';
+    // WHY: Better user experience - ready for next task
+    
+    
+    
+    // --- PART F: UPDATE THE DISPLAY ---
+    /*
+    📖 EXPLANATION:
+    We added the task to the array (JavaScript's memory),
+    but the user can't SEE it yet!
+    
+    We need to create HTML elements to display it.
+    That's what renderTasks() will do (we'll create it next).
+    */
+    
+    // ✏️ TODO 14: Call the renderTasks function
+    // WHAT TO WRITE: renderTasks();
+    // WHY: To show the new task on the page
+    
+    
+    // ✏️ TODO 15: Call the updateStats function
+    // WHAT TO WRITE: updateStats();
+    // WHY: To update the task count numbers
+    
+    
+} // ← Don't forget this closing brace!
+
+// 🧪 TEST: Try adding a task. Check console for errors.
+// You'll see "renderTasks is not defined" - that's next!
+
+
+// ========================================
+// 📚 STEP 5: THE renderTasks FUNCTION
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to create HTML elements and display them on the page.
+
+📖 EXPLANATION:
+"Render" = Display on screen
+
+Your tasks are stored in the array, but that's just JavaScript's memory.
+Users can't SEE JavaScript's memory!
+
+We need to CREATE HTML elements like:
+<li class="task-item">
+    <input type="checkbox">
+    <span>Buy milk</span>
+    <button>Delete</button>
+</li>
+
+🔧 KEY TOOLS:
+- document.createElement('li') = Make a new <li> element
+- element.textContent = 'text' = Put text inside it
+- element.className = 'task-item' = Give it a CSS class
+- parent.appendChild(child) = Add it to the page
+*/
+
+// ✏️ TODO 16: Create the renderTasks function
+function renderTasks() {
+    
+    // --- PART A: CLEAR THE LIST ---
+    /*
+    📖 EXPLANATION:
+    innerHTML gets or sets the HTML inside an element.
+    
+    Setting it to '' (empty) clears everything inside.
+    
+    WHY? We're going to rebuild the ENTIRE list fresh.
+    If we don't clear it, we'd keep adding duplicates!
+    */
+    
+    // ✏️ TODO 17: Clear the taskList
+    // WHAT TO WRITE: taskList.innerHTML = '';
+    // WHY: To remove old tasks before showing updated list
+    
+    
+    
+    // --- PART B: CHECK IF EMPTY ---
+    /*
+    📖 EXPLANATION:
+    .length tells you how many items are in an array.
+    
+    Example:
+    ['a', 'b', 'c'].length = 3
+    [].length = 0 (empty array)
+    */
+    
+    // ✏️ TODO 18: If tasks array is empty, show a message
+    // WHAT TO WRITE:
+    // if (tasks.length === 0) {
+    //     taskList.innerHTML = '<li class="empty-state">No tasks yet. Add one above!</li>';
+    //     return;
+    // }
+    // WHY: Better UX - show friendly message instead of blank space
+    
+    
+    
+    // --- PART C: LOOP THROUGH TASKS ---
+    /*
+    📖 EXPLANATION:
+    .forEach() runs a function for EACH item in an array.
+    
+    Example:
+    ['apple', 'banana', 'orange'].forEach(function(fruit) {
+        console.log(fruit);
+    });
+    
+    This prints:
+    apple
+    banana
+    orange
+    
+    For each task, we'll create HTML elements to display it.
+    */
+    
+    // ✏️ TODO 19: Loop through each task
+    // WHAT TO WRITE: tasks.forEach(function(task) {
+    // Don't forget the closing }); at the end!
+    
+    tasks.forEach(function(task) {
+        
+        // ✏️ TODO 20: Create a list item (li) element
+        // WHAT TO WRITE: const li = document.createElement('li');
+        
+        
+        
+        // ✏️ TODO 21: Give it the 'task-item' class
+        // WHAT TO WRITE: li.className = 'task-item';
+        
+        
+        
+        // ✏️ TODO 22: If task is completed, add 'completed' class
+        // WHAT TO WRITE:
+        // if (task.completed) {
+        //     li.classList.add('completed');
+        // }
+        
+        
+        
+        // ✏️ TODO 23: Create the checkbox (copy this)
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'checkbox';
+        checkbox.checked = task.completed;
+        checkbox.addEventListener('change', function() {
+            toggleTask(task.id);
+        });
+        
+        
+        // ✏️ TODO 24: Create the text span
+        // WHAT TO WRITE:
+        // const span = document.createElement('span');
+        // span.className = 'task-text';
+        // span.textContent = task.text;
+        
+        
+        
+        // ✏️ TODO 25: Create the delete button
+        // WHAT TO WRITE:
+        // const deleteBtn = document.createElement('button');
+        // deleteBtn.className = 'delete-btn';
+        // deleteBtn.textContent = 'Delete';
+        // deleteBtn.addEventListener('click', function() {
+        //     deleteTask(task.id);
+        // });
+        
+        
+        
+        // ✏️ TODO 26: Add all elements to the li
+        // WHAT TO WRITE:
+        // li.appendChild(checkbox);
+        // li.appendChild(span);
+        // li.appendChild(deleteBtn);
+        
+        
+        
+        // ✏️ TODO 27: Add the li to the taskList
+        // WHAT TO WRITE: taskList.appendChild(li);
+        
+        
+    }); // ← Closing brace for forEach
+    
+} // ← Closing brace for renderTasks
+
+
+// ========================================
+// 📚 STEP 6: TOGGLE TASK (Mark Complete)
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to change a task's completed status.
+
+📖 EXPLANATION:
+"Toggle" = Switch between two states (on/off, true/false)
+
+.map() creates a NEW array by transforming each item.
+
+We use it to find the task with matching ID and change it.
+*/
+
+// ✏️ TODO 28: Create the toggleTask function (copy this)
+function toggleTask(id) {
+    tasks = tasks.map(function(task) {
+        if (task.id === id) {
+            task.completed = !task.completed; // ! means "opposite"
+        }
+        return task;
+    });
+    renderTasks();
+    updateStats();
+}
+
+
+// ========================================
+// 📚 STEP 7: DELETE TASK
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to remove an item from an array.
+
+📖 EXPLANATION:
+.filter() creates a NEW array with only items that pass a test.
+
+We keep every task EXCEPT the one with matching ID.
+*/
+
+// ✏️ TODO 29: Create the deleteTask function (copy this)
+function deleteTask(id) {
+    tasks = tasks.filter(function(task) {
+        return task.id !== id; // !== means "not equal to"
+    });
+    renderTasks();
+    updateStats();
+}
+
+
+// ========================================
+// 📚 STEP 8: UPDATE STATS
+// ========================================
+/*
+🎯 WHAT YOU'LL LEARN:
+How to count and display statistics.
+
+📖 EXPLANATION:
+Updates the numbers at the top (Total, Completed, Remaining).
+*/
+
+// ✏️ TODO 30: Create the updateStats function (copy this)
+function updateStats() {
+    const total = tasks.length;
+    const completed = tasks.filter(t => t.completed).length;
+    const remaining = total - completed;
+    
+    totalTasksEl.textContent = total;
+    completedTasksEl.textContent = completed;
+    remainingTasksEl.textContent = remaining;
+}
+
+// Initialize stats
+updateStats();
+
+
+// ========================================
+// 🎓 LEARNING CHECKLIST
+// ========================================
+/*
+After completing all TODOs, you should understand:
+
+✅ querySelector - How to select HTML elements
+✅ Arrays - How to store multiple items
+✅ Event Listeners - How to respond to clicks
+✅ Functions - How to organize reusable code
+✅ Objects - How to group related data
+✅ DOM Manipulation - How to create and add HTML elements
+✅ Array methods - forEach, map, filter, push
+
+🧪 FINAL TEST:
+1. Add a task
+2. Mark it complete
+3. Delete it
+4. Check the stats update
+
+🚀 NEXT CHALLENGES:
+1. Add a "Clear All" button
+2. Add task priorities (High/Medium/Low)
+3. Save to localStorage (persists after refresh)
+4. Add ability to edit tasks
+
+Ask questions about ANYTHING you don't understand!
+*/

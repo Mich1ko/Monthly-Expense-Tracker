@@ -1,66 +1,26 @@
-let budget = 0;
-let expenses = [];
+const budgetInput = document.getElementById('budgetInput');
+const selectBudgetBtn = document.getElementById('selectBudgetBtn');
+const budgetDisplay = document.getElementById('budgetDisplay');
+const expenseForm = document.getElementById('expenseForm');
+const expensesList = document.getElementById('expensesList');
+const progressBar = document.getElementById('progressBar');
 
-const expenseDescription = document.getElementById('expenceDescription');
+//Selecting the budget display elements
+const totalBudgetEl = document.getElementById('totalBudget');
+const totalSpentEl = document.getElementById('totalSpent');
+const remainingEl = document.getElementById('remaining');
+const remainingLabelEL = document.getElementById('remaingLabel');
+const progressFill = document.getElementById('progressFill');
+
+//Selecting the expense input elements
+const expenseDiscription = document.getElementById('expenseDiscription');
 const expenseCategory = document.getElementById('expenseCategory');
 const expenseAmount = document.getElementById('expenseAmount');
 const expenseDate = document.getElementById('expenseDate');
 const addExpenseBtn = document.getElementById('addExpenseBtn');
+const expensesContainer = document.getElementById('expensesContainerr');
+
+let budget = 0;
+let expenses = [];
 
 expenseDate.valueAsDate = new Date();
-
-addExpenseBtn.addEventListener('click', function() {
-
-    const description = expenseDescription.value.trim();
-    const category = expenseCategory.value;
-    const amount = parseFloat(expenseAmount.value);
-
-    //Variable: Check if all fields are filled
-    if (!description) {
-        alert('Please enter a description!');
-        return;
-    }
-
-    if (!date) {
-        alert('Please select a date!');
-        return;
-    }
-
-    const expense = {
-        id: Date.now(), // Unique ID using timestamp
-        description: description,
-        category: category,
-        amount: amount,
-        date: date
-    };
-
-    // Add to expenses array
-    expenses.push(expense);
-
-    //Clear the form
-    expenseDescription.value = '';
-    expenseAmount.value = '';
-    expenseDate.valueAsDate = new Date();
-
-    updateBudgetDisplay(); // Update budget display
-});
-
-// UPDATE BUDGET DISPLAY - Calculate and show totals
-function updateBudgetDisplay() {
-    let totalSpent = 0;
-    for (let i = 0; i < expenses.length; i++) {
-        totalSpent += expenses[i].amount;
-    }
-
-    // Calculate remaining budget
-    const remaining = budget - totalSpent;
-
-    // Calculate percentages
-    const pecentage = (totalSpent / budget) * 100;
-
-    // Update budget amounts
-    totalBudgetEl.textContent = '₱' + budget.toFixed(2);
-    totalSpent.textContent = '₱' + totalSpent.toFixed(2);
-
-}
-
