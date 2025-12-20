@@ -10,20 +10,73 @@
     <div class="container">
         <h1>💰 My Monthly Expense Tracker</h1>
 
+        <!-- Budget Section -->
         <div class="budget-section">
-             <h2>Set Your Budget</h2>
-            <input type="number" id="budgetInput" placeholder="Enter budget amount">
-            <button id="setBudgetBtn">Set Budget</button>
+            <div class="input-group">
+                <label>Set Your Monthly Budget</label>
+                <input type="number" id="budgetInput" placeholder="Enter your budget (e.g., 5000)">
+                <button id="setBudgetBtn" style="margin-top: 10px;">Set Budget</button>
+            </div>
 
+            <!-- Hidden until budget is set -->
+            <div class="budget-display" id="budgetDisplay" style="display: none;">
+                <div class="budget-item">
+                    <label>Total Budget</label>
+                    <div class="amount" id="totalBudget">₱0</div>
+                </div>
+                <div class="budget-item spent">
+                    <label>Spent</label>
+                    <div class="amount" id="totalSpent">₱0</div>
+                </div>
+                <div class="budget-item remaining">
+                    <label id="remainingLabel">Remaining</label>
+                    <div class="amount" id="remaining">₱0</div>
+                </div>
+            </div>
 
-            <div class="budget-display">
-                <p>Budget: <span id="totalBudget">₱0</span></p>
-                <p>Spent: <span id="totalSpent">₱0</span></p>
-                <p><span id="remainingLabel">Remaining</span>: <span id="remaining">₱0</span></p>
-
+            <!-- Progress Bar -->
+            <div class="progress-bar" id="progressBar" style="display: none;">
+                <div class="progress-fill" id="progressFill">0%</div>
             </div>
         </div>
+
+        <!-- Add Expense Form (Hidden until budget is set) -->
+        <div class="expense-form" id="expenseForm" style="display: none;">
+            <h2 style="margin-bottom: 20px;">Add New Expense</h2>
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" id="expenseDescription" placeholder="What did you buy?">
+            </div>
+            <div class="input-group">
+                <label>Category</label>
+                <select id="expenseCategory">
+                    <option value="Food">🍔 Food</option>
+                    <option value="Bills">💡 Bills</option>
+                    <option value="Transport">🚗 Transport</option>
+                    <option value="Grocery">🛒 Grocery</option>
+                    <option value="Entertainment">🎬 Entertainment</option>
+                    <option value="Health">⚕️ Health</option>
+                    <option value="Other">📦 Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Amount (₱)</label>
+                <input type="number" id="expenseAmount" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label>Date</label>
+                <input type="date" id="expenseDate">
+            </div>
+            <button id="addExpenseBtn">Add Expense</button>
+        </div>
+
+        <!-- Expenses List (Hidden until there are expenses) -->
+        <div class="expenses-list" id="expensesList" style="display: none;">
+            <h2 style="margin-bottom: 20px;">Your Expenses</h2>
+            <div id="expensesContainer"></div>
+        </div>
     </div>
+
     <script src="main.js"></script>
 </body>
 </html>
