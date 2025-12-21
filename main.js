@@ -30,6 +30,7 @@ const savedBudget = localStorage.getItem('budget');
 
 if (savedBudget !== null) {
     budget = parseFloat(savedBudget);
+    budgetInput.value = budget;
     budgetDisplay.style.display = 'flex';
     expenseForm.style.display = 'block';
     progressBar.style.display = 'block';
@@ -94,6 +95,8 @@ addExpenseBtn.addEventListener('click', function(event) {
     localStorage.setItem('expenses', JSON.stringify(expenses));
 
     expenses.push(expense);
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+
     expenseDescription.value = '';
     expenseAmount.value = '';
     expenseDate.valueAsDate = new Date ();
@@ -180,7 +183,7 @@ function updateBudgetDisplay() {
     // creating delete expense function
     function deleteExpense(id) {
         expenses = expenses.filter(expense => expense.id !== id); // keeps all expenses except the one we want to delete
-        localStorage.setItem('expenses', JSON.stringify(expenses));
+        localStorage.setItem('expenses', JSON.stringify(expenses)); 
         updateBudgetDisplay(); // to recalculate totals and refresh the list 
 
 
