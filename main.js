@@ -24,6 +24,24 @@ let budget = 0;
 let expenses = [];
 
 
+
+const savedExpenses = localStorage.getItem('expenses');
+const savedBudget = localStorage.getItem('budget');
+
+if (savedBudget !== null) {
+    budget = parseFloat(savedBudget);
+    budgetDisplay.style.display = 'flex';
+    expenseForm.style.display = 'block';
+    progressBar.style.display = 'block';
+    updateBudgetDisplay();
+}
+
+if (savedExpenses !== null) {
+    expenses = JSON.parse(savedExpenses);
+    displayExpenses();
+}
+
+
 if (expenseDate) {
     expenseDate.valueAsDate = new Date();
 }
@@ -31,6 +49,8 @@ setBudgetBtn.addEventListener('click', function() {
     const value = parseFloat(budgetInput.value);
     if (value && value > 0) {
         budget = value;
+        localStorage.setItem('budget', budget.toString());
+
         budgetDisplay.style.display = 'flex';
         expenseForm.style.display = 'block';
         progressBar.style.display = 'block';
@@ -69,7 +89,9 @@ addExpenseBtn.addEventListener('click', function(event) {
         category: category,
         amount: amount,
         date: date
-    }
+    };
+
+    localStorage.setItem('expenses', JSON.stringify(expenses));
 
     expenses.push(expense);
     expenseDescription.value = '';
@@ -158,6 +180,7 @@ function updateBudgetDisplay() {
     // creating delete expense function
     function deleteExpense(id) {
         expenses = expenses.filter(expense => expense.id !== id); // keeps all expenses except the one we want to delete
+        localStorage.setItem('expenses', JSON.stringify(expenses));
         updateBudgetDisplay(); // to recalculate totals and refresh the list 
 
 
